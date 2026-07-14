@@ -1,6 +1,4 @@
 export default function FloatingHearts() {
-  const hearts = Array.from({ length: 30 });
-
   const emojis = [
     "❤️",
     "💖",
@@ -10,15 +8,18 @@ export default function FloatingHearts() {
     "💞",
     "💓",
     "🥰",
+    "😍",
+    "🌹",
   ];
 
   return (
-    <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
-      {hearts.map((_, index) => {
-        const size = Math.random() * 25 + 15;
+    <div className="fixed inset-0 overflow-hidden pointer-events-none z-50">
+      {Array.from({ length: 50 }).map((_, index) => {
         const left = Math.random() * 100;
-        const delay = Math.random() * 5;
-        const duration = Math.random() * 5 + 6;
+        const delay = Math.random() * 8;
+        const duration = Math.random() * 6 + 6;
+        const size = Math.random() * 20 + 20;
+        const drift = Math.random() * 80 - 40;
 
         return (
           <span
@@ -29,6 +30,7 @@ export default function FloatingHearts() {
               fontSize: `${size}px`,
               animationDelay: `${delay}s`,
               animationDuration: `${duration}s`,
+              "--drift": `${drift}px`,
             }}
           >
             {emojis[Math.floor(Math.random() * emojis.length)]}

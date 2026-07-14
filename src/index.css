@@ -1,27 +1,142 @@
-@import "tailwindcss";
 
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* =========================
+   FALLING HEARTS
+========================= */
 
 .heart {
   position: absolute;
   top: -10%;
+  animation-name: heartFall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
   user-select: none;
-  animation: fall linear infinite;
+  pointer-events: none;
+  z-index: 999;
+  filter: drop-shadow(0 0 8px rgba(255, 0, 100, .35));
 }
 
-@keyframes fall {
+@keyframes heartFall {
 
   0% {
-    transform: translateY(-10vh) rotate(0deg);
     opacity: 0;
+    transform:
+      translate3d(0,-10vh,0)
+      rotate(0deg)
+      scale(.8);
   }
 
   10% {
     opacity: 1;
   }
 
+  25% {
+    transform:
+      translate3d(calc(var(--drift) * .25),25vh,0)
+      rotate(90deg)
+      scale(1);
+  }
+
+  50% {
+    transform:
+      translate3d(calc(var(--drift) * .6),55vh,0)
+      rotate(180deg)
+      scale(1.15);
+  }
+
+  75% {
+    transform:
+      translate3d(calc(var(--drift)),85vh,0)
+      rotate(270deg)
+      scale(1);
+  }
+
   100% {
-    transform: translateY(120vh) rotate(360deg);
     opacity: 0;
+    transform:
+      translate3d(calc(var(--drift) * 1.2),120vh,0)
+      rotate(360deg)
+      scale(.8);
+  }
+}
+
+/* =========================
+   PHOTO ANIMATION
+========================= */
+
+.animate-photo{
+  animation:photoZoom 4s ease-in-out infinite;
+}
+
+@keyframes photoZoom{
+
+  0%{
+    transform:scale(1) rotate(0deg);
+  }
+
+  50%{
+    transform:scale(1.05) rotate(.8deg);
+  }
+
+  100%{
+    transform:scale(1) rotate(0deg);
+  }
+
+}
+
+/* =========================
+   CARD ANIMATION
+========================= */
+
+.animate-card{
+  animation:cardShow .8s ease;
+}
+
+@keyframes cardShow{
+
+  from{
+
+    opacity:0;
+
+    transform:
+      translateY(40px)
+      scale(.9);
+
+  }
+
+  to{
+
+    opacity:1;
+
+    transform:
+      translateY(0)
+      scale(1);
+
+  }
+
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width:640px){
+
+  .heart{
+    font-size:18px !important;
+  }
+
+  .animate-photo{
+    width:220px !important;
+    height:220px !important;
   }
 
 }
