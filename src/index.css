@@ -1,1 +1,27 @@
 @import "tailwindcss";
+
+
+.heart {
+  position: absolute;
+  top: -10%;
+  user-select: none;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(120vh) rotate(360deg);
+    opacity: 0;
+  }
+
+}

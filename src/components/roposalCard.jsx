@@ -1,4 +1,5 @@
 import { useState } from "react";
+import FloatingHearts from "./FloatingHearts";
 
 export default function ProposalCard() {
   const [step, setStep] = useState(0);
@@ -49,22 +50,31 @@ export default function ProposalCard() {
   };
 
   const moveNoButton = () => {
-    const buttonWidth = 120;
-    const buttonHeight = 50;
-
-    const x = Math.random() * (window.innerWidth - buttonWidth);
-    const y = Math.random() * (window.innerHeight - buttonHeight);
+    const x = Math.random() * (window.innerWidth - 120);
+    const y = Math.random() * (window.innerHeight - 60);
 
     setNoPos({ x, y });
   };
 
   if (accepted) {
     return (
-      <div className="flex h-screen items-center justify-center bg-pink-100">
-        <div className="bg-white rounded-3xl shadow-2xl p-10 text-center max-w-md">
-          <h1 className="text-5xl mb-4">🥳❤️</h1>
+      <div className="relative flex h-screen items-center justify-center overflow-hidden bg-gradient-to-br from-pink-200 via-pink-100 to-red-100">
 
-          <h2 className="text-3xl font-bold text-pink-600">
+        <FloatingHearts />
+
+        <div className="bg-white rounded-3xl shadow-2xl p-8 text-center max-w-md z-10">
+
+          <img
+            src="/cppl.jpeg"
+            alt=""
+            className="w-64 h-64 object-cover rounded-3xl mx-auto shadow-xl border-4 border-pink-300"
+          />
+
+          <h1 className="text-5xl mt-6">
+            🥳❤️
+          </h1>
+
+          <h2 className="text-3xl font-bold text-pink-600 mt-3">
             Yayyyyy!!
           </h2>
 
@@ -74,9 +84,10 @@ export default function ProposalCard() {
             You just made me the happiest person. ❤️
           </p>
 
-          <div className="text-4xl mt-8 animate-bounce">
-            ❤️ 💖 ❤️ 💖 ❤️
+          <div className="flex justify-center gap-3 text-4xl mt-8 animate-pulse">
+            ❤️ 💖 💕 💘 💞
           </div>
+
         </div>
       </div>
     );
@@ -99,19 +110,17 @@ export default function ProposalCard() {
 
             <button
               onClick={nextStep}
-              className="bg-pink-500 hover:bg-pink-600 text-white px-8 py-3 rounded-full text-lg transition duration-300"
+              className="bg-pink-500 hover:bg-pink-600 text-white px-8 py-3 rounded-full text-lg transition"
             >
               {messages[step].button}
             </button>
           </>
         ) : (
           <>
-            <h1 className="text-5xl mb-5">
-              💖
-            </h1>
+            <h1 className="text-5xl mb-5">💖</h1>
 
             <h2 className="text-3xl font-bold text-pink-600">
-              Jerin Tumi Ki amamr bow hobe ??
+              Jerin, Tumi Ki Amar Bou Hobe?
             </h2>
 
             <p className="mt-5 text-gray-600">
@@ -122,7 +131,7 @@ export default function ProposalCard() {
 
               <button
                 onClick={() => setAccepted(true)}
-                className="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-full text-lg transition"
+                className="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-full text-lg"
               >
                 Yes, I Love You ❤️
               </button>
@@ -141,14 +150,16 @@ export default function ProposalCard() {
                 left: noPos.x,
                 top: noPos.y,
               }}
-              className="bg-red-500 text-white px-8 py-3 rounded-full transition-all duration-75 select-none"
+              className="bg-red-500 text-white px-8 py-3 rounded-full transition-all duration-75"
             >
               No 😒
             </button>
 
           </>
         )}
+
       </div>
+
     </div>
   );
 }
