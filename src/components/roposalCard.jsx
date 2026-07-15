@@ -133,7 +133,7 @@ export default function ProposalCard() {
             <h2 className="text-2xl sm:text-3xl font-bold text-pink-600 leading-snug">
               Jerin,
               <br />
-              Tumi Ki Amar Bou Hobe? 🥹❤️  ei to asi
+              Tumi Ki Amar Bou Hobe? 🥹❤️
             </h2>
 
             <p className="mt-5 text-gray-600 text-base sm:text-lg">
