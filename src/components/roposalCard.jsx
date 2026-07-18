@@ -77,7 +77,7 @@ export default function ProposalCard() {
           />
 
           <h1 className="text-4xl sm:text-5xl mt-6">
-            🥳❤️ nwa ics
+            🥳❤️ 
           </h1>
 
           <h2 className="text-2xl sm:text-3xl font-bold text-pink-600 mt-4">
