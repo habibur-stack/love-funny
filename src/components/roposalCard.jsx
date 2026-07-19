@@ -85,7 +85,7 @@ export default function ProposalCard() {
           </h2>
 
           <p className="mt-5 text-base sm:text-lg text-gray-700 leading-7">
-            I knew it! 💖
+            I knew it! 💖 ye i needs 
             <br />
             You just made me the happiest person.
             <br />
