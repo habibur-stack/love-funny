@@ -139,7 +139,7 @@ export default function ProposalCard() {
             <p className="mt-5 text-gray-600 text-base sm:text-lg">
               I really like you...
               <br />
-              Will you stay with me forever? ❤️ the ta tukee
+              Will you stay with me forever? ❤️
             </p>
 
             <div className="flex justify-center mt-10">
